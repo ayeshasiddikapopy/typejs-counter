@@ -60,7 +60,7 @@ window.addEventListener("scroll", () => {
 
         // console.log(`is in viewport`);
          let count = 0;
-         console.log(count); // count e hosce na
+         console.log(count);  // jodi count akhanew dei sudhu console e hoi kintu count hoi na
 
         counterArrays.map((items) => { 
 
@@ -86,20 +86,20 @@ window.addEventListener("scroll", () => {
 
 
 // vannilla code for counter
-let a = document.querySelectorAll(".counter");
-let arrays = Array.from(a);
-let count = 0;
+// let a = document.querySelectorAll(".counter");
+// let arrays = Array.from(a);
+// let count = 0;
 
-arrays.map((items) => {
-  function counterUp(){
-    count++;
-    items.innerHTML = count;
+// arrays.map((items) => {
+//   function counterUp(){
+//     count++;
+//     items.innerHTML = count;
 
-    if(count == items.dataset.number){
-      clearInterval(stop)
-    }
-  }
-  let stop = setInterval(() => {
-    counterUp()
-  }, items.dataset.speed);  // (1000 / item.dataset.speed ) for ending same time in all values from counter
-});
+//     if(count == items.dataset.number){
+//       clearInterval(stop)
+//     }
+//   }
+//   let stop = setInterval(() => {
+//     counterUp()
+//   }, items.dataset.speed);  // (1000 / item.dataset.speed ) for ending same time in all values from counter
+// });
