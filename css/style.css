@@ -37,3 +37,10 @@ h1::after{
 .box2{
     height: 100px;
 }
+.counters{
+    display: flex;
+    width: 600px;
+    /* height: 100px; */
+    margin: 0 auto;
+    justify-content: space-around;
+}

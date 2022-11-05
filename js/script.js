@@ -40,31 +40,31 @@ window.addEventListener("scroll" ,() =>{
 });
 
 
-
-
 // ------------counter------------//
-let counter = document.querySelector(".counter");
+let counters = document.querySelector(".counters");
+let counter = document.querySelectorAll(".counter")
 let counterArrays = Array.from(counter);
+
 // let count = 0;
 
 
-function isinviewport(){
-    let viewport = counter.getBoundingClientRect();
+function ISviewport(){
+    let viewport = counters.getBoundingClientRect();
 
     return(
         viewport.top >=0 && viewport.left >=0 && viewport.bottom <= (window.innerHeight || document.documentElement.clientHeight) && viewport.right <= (window.innerWidth || document.documentElement.clientWidth));
 }
 
 window.addEventListener("scroll", () => {
-    if(isinviewport()){
-
+    if(ISviewport() && onetime){
+        onetime = false;
         // console.log(`is in viewport`);
-         let count = 0;
-         console.log(count);  // jodi count akhanew dei sudhu console e hoi kintu count hoi na
+        //  let count = 0;
+        //  console.log(count);  // jodi count akhanew dei sudhu console e hoi kintu count hoi na
 
         counterArrays.map((items) => { 
 
-        // let count = 0;
+        let count = 0;
         // console.log(count); // count e hosce na
 
         function counterUp(){
