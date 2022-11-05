@@ -45,8 +45,6 @@ let counters = document.querySelector(".counters");
 let counter = document.querySelectorAll(".counter")
 let counterArrays = Array.from(counter);
 
-// let count = 0;
-
 
 function ISviewport(){
     let viewport = counters.getBoundingClientRect();
@@ -58,14 +56,10 @@ function ISviewport(){
 window.addEventListener("scroll", () => {
     if(ISviewport() && onetime){
         onetime = false;
-        // console.log(`is in viewport`);
-        //  let count = 0;
-        //  console.log(count);  // jodi count akhanew dei sudhu console e hoi kintu count hoi na
-
         counterArrays.map((items) => { 
 
         let count = 0;
-        // console.log(count); // count e hosce na
+        console.log(count); // count e hosce na
 
         function counterUp(){
             count++;
@@ -84,22 +78,36 @@ window.addEventListener("scroll", () => {
 
 
 
+//-------------------cursor-----------------------//
+let body = document.querySelector("body");
+let count = 0 ;
 
-// vannilla code for counter
-// let a = document.querySelectorAll(".counter");
-// let arrays = Array.from(a);
-// let count = 0;
+function circle(e){
+    count++;
 
-// arrays.map((items) => {
-//   function counterUp(){
-//     count++;
-//     items.innerHTML = count;
+    if(count <= 1){
+    let circlediv = document.createElement("div");
+    circlediv.classList.add("circle");
+    
+    body.appendChild(circlediv);
 
-//     if(count == items.dataset.number){
-//       clearInterval(stop)
-//     }
-//   }
-//   let stop = setInterval(() => {
-//     counterUp()
-//   }, items.dataset.speed);  // (1000 / item.dataset.speed ) for ending same time in all values from counter
-// });
+    circlediv.style.transition = "all 2s linear"
+    circlediv.style.top = e.clientY + "px";
+    circlediv.style.left = e.clientX + "px";
+    circlediv.style.top = circlediv.offsetTop - 20 + "px";
+    circlediv.style.left = circlediv.offsetLeft -20 + "px";
+    circlediv.style.visibility = "hidden";
+
+    }else{
+        count = 0;
+        let circles = document.querySelectorAll(".circle");
+        let circleArray = Array.from(circles);
+
+        circleArray.map((item) => {
+            item.remove();
+        })
+    }
+}
+document.addEventListener("mousemove",circle);
+
+// prblm -- scroll korle circle mouse theke opure othe jai, r bar bar div create korbo keno ? its look like odd if i go for count 1.

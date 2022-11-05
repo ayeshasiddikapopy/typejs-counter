@@ -44,3 +44,17 @@ h1::after{
     margin: 0 auto;
     justify-content: space-around;
 }
+.circle{
+    width: 30px;
+    height: 30px;
+    border: 1px solid #222;
+    border-radius: 50%;
+    /* -webkit-border-radius: 50%;
+    -moz-border-radius: 50%;
+    -ms-border-radius: 50%;
+    -o-border-radius: 50%; */
+    position: absolute;
+    pointer-events: none;
+    transition-property: background,transform;
+    transform-origin: 30% 40%;
+}
