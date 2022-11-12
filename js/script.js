@@ -41,41 +41,42 @@ window.addEventListener("scroll" ,() =>{
 
 
 // ------------counter------------//
-let counters = document.querySelector(".counters");
-let counter = document.querySelectorAll(".counter")
-let counterArrays = Array.from(counter);
 
+let counters = document.querySelector(".counters");
+let timeview = true;
 
 function ISviewport(){
     let viewport = counters.getBoundingClientRect();
-
     return(
         viewport.top >=0 && viewport.left >=0 && viewport.bottom <= (window.innerHeight || document.documentElement.clientHeight) && viewport.right <= (window.innerWidth || document.documentElement.clientWidth));
 }
 
 window.addEventListener("scroll", () => {
-    if(ISviewport() && onetime){
-        onetime = false;
-        counterArrays.map((items) => { 
+    if(ISviewport() && timeview){
+        timeview = false;
 
-        let count = 0;
-        console.log(count); // count e hosce na
+    let counter = document.querySelectorAll(".counter");
+    let counterarrays = Array.from(counter);
+    
+    counterarrays.map((items) => {
 
-        function counterUp(){
-            count++;
-            items.innerHTML = count;
-
-            if(count == items.dataset.number){
-            clearInterval(stop)
-            }
+      let count = 0;
+    
+      function counterUp(){
+        count++;
+        items.innerHTML = count;
+    
+        if(count == items.dataset.number){
+          clearInterval(stop)
         }
-        let stop = setInterval(() => {
-                counterUp()
-            }, 500);  
-        });
-    }
-})
+      }
+      let stop = setInterval(() => {
+        counterUp()
+      },500);
+    });
+  }
 
+})
 
 
 //-------------------cursor-----------------------//
